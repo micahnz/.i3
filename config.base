@@ -94,8 +94,8 @@ mode "B" {
 #
 bar {
   position bottom
-        status_command i3status
-        tray_output primary
+  status_command i3status
+  tray_output primary
 }
 
 #
