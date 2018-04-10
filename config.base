@@ -1,0 +1,106 @@
+# Generate config with:
+# sed '/^[[:space:]]*# *default_keys/r config.default_keys' config.base > config
+
+#
+set $mod Mod1
+set $up k
+set $down j
+set $left h
+set $right l
+
+#
+floating_modifier $mod
+font pango:DejaVu Sans Mono 8
+focus_follows_mouse no
+
+#
+workspace A-1  output DP1
+workspace A-2  output DP1
+workspace A-3  output DP1
+workspace A-4  output DP1
+workspace A-5  output DP1
+workspace A-6  output DP1
+workspace A-7  output DP1
+workspace A-8  output DP1
+workspace A-9  output DP1
+workspace A-10 output DP1
+
+#
+workspace B-1  output HDMI3
+workspace B-2  output HDMI3
+workspace B-3  output HDMI3
+workspace B-4  output HDMI3
+workspace B-5  output HDMI3
+workspace B-6  output HDMI3
+workspace B-7  output HDMI3
+workspace B-8  output HDMI3
+workspace B-9  output HDMI3
+workspace B-10 output HDMI3
+
+#
+mode "A" {
+  # default_keys
+
+  bindsym $mod+1 workspace A-1
+  bindsym $mod+2 workspace A-2
+  bindsym $mod+3 workspace A-3
+  bindsym $mod+4 workspace A-4
+  bindsym $mod+5 workspace A-5
+  bindsym $mod+6 workspace A-6
+  bindsym $mod+7 workspace A-7
+  bindsym $mod+8 workspace A-8
+  bindsym $mod+9 workspace A-9
+  bindsym $mod+0 workspace A-10
+
+  bindsym $mod+Shift+1 move container to workspace A-1
+  bindsym $mod+Shift+2 move container to workspace A-2
+  bindsym $mod+Shift+3 move container to workspace A-3
+  bindsym $mod+Shift+4 move container to workspace A-4
+  bindsym $mod+Shift+5 move container to workspace A-5
+  bindsym $mod+Shift+6 move container to workspace A-6
+  bindsym $mod+Shift+7 move container to workspace A-7
+  bindsym $mod+Shift+8 move container to workspace A-8
+  bindsym $mod+Shift+9 move container to workspace A-9
+  bindsym $mod+Shift+0 move container to workspace A-10
+}
+
+#
+mode "B" {
+  # default_keys
+
+  bindsym $mod+1 workspace B-1
+  bindsym $mod+2 workspace B-2
+  bindsym $mod+3 workspace B-3
+  bindsym $mod+4 workspace B-4
+  bindsym $mod+5 workspace B-5
+  bindsym $mod+6 workspace B-6
+  bindsym $mod+7 workspace B-7
+  bindsym $mod+8 workspace B-8
+  bindsym $mod+9 workspace B-9
+  bindsym $mod+0 workspace B-10
+
+  bindsym $mod+Shift+1 move container to workspace B-1
+  bindsym $mod+Shift+2 move container to workspace B-2
+  bindsym $mod+Shift+3 move container to workspace B-3
+  bindsym $mod+Shift+4 move container to workspace B-4
+  bindsym $mod+Shift+5 move container to workspace B-5
+  bindsym $mod+Shift+6 move container to workspace B-6
+  bindsym $mod+Shift+7 move container to workspace B-7
+  bindsym $mod+Shift+8 move container to workspace B-8
+  bindsym $mod+Shift+9 move container to workspace B-9
+  bindsym $mod+Shift+0 move container to workspace B-10
+}
+
+#
+bar {
+  position bottom
+        status_command i3status
+        tray_output primary
+}
+
+#
+exec_always ~/.i3/i3workspace.pl
+exec i3-config-wizard
+exec --no-startup-id xsetroot -solid "#000000"
+exec xbindkeys
+exec synapse
