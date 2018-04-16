@@ -10,7 +10,7 @@ set $right l
 
 #
 floating_modifier $mod
-font pango:DejaVu Sans Mono 8
+font xft:Droid Sans Mono 8
 focus_follows_mouse no
 
 #
@@ -104,3 +104,4 @@ exec i3-config-wizard
 exec --no-startup-id xsetroot -solid "#000000"
 exec xbindkeys
 exec synapse
+mode A
