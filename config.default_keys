@@ -6,7 +6,7 @@
   bindsym $mod+c kill
 
   # application shortcuts
-  bindsym $mod+r exec dmenu_run
+  bindsym $mod+p exec dmenu_run
   bindsym $mod+f exec pcmanfm
   bindsym $mod+t exec gnome-terminal
 
@@ -37,12 +37,6 @@
   bindsym $mod+Shift+Up move container to output up
   bindsym $mod+Shift+Right move container to output right
 
-  # resize windows
-  bindsym $mod+Shift+u resize shrink width 5 px or 5 ppt
-  bindsym $mod+Shift+i resize grow height 5 px or 5 ppt
-  bindsym $mod+Shift+o resize shrink height 5 px or 5 ppt
-  bindsym $mod+Shift+p resize grow width 5 px or 5 ppt
-
   # change tiling position
   bindsym $mod+period split h
   bindsym $mod+comma split v
@@ -57,7 +51,9 @@
   bindsym $mod+minus scratchpad show
 
   # special modes
-  bindsym $mod+Escape mode "pass-through"
+  bindsym $mod+Escape mode pass-through
+  bindsym $mod+r mode resize
+  bindsym $mod+m mode $layout
 
   # system commands
   bindsym $mod+q restart

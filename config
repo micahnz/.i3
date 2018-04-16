@@ -5,15 +5,16 @@
 set $mod Mod1
 
 # vim style navigation
-set $up k
-set $down j
 set $left h
+set $down j
+set $up k
 set $right l
 
 # defaults
 floating_modifier $mod
 font xft:Droid Sans Mono 8
 focus_follows_mouse no
+mouse_warping none
 
 # window defaults
 for_window [class=".*"] border pixel 1
@@ -21,7 +22,48 @@ for_window [class="Galculator"] floating enable
 
 # pass-through mode
 mode "pass-through" {
-  bindsym $mod+Escape mode 1
+  bindsym $mod+Escape exec ~/.i3/bin/i3-mode-default
+}
+
+# resize modes
+mode "resize" {
+  bindsym $left resize grow left 5 px or 5 ppt
+  bindsym $down resize grow down 5 px or 5 ppt
+  bindsym $up resize grow up 5 px or 5 ppt
+  bindsym $right resize grow right 5 px or 5 ppt
+  bindsym $mod+$left resize shrink left 5 px or 5 ppt
+  bindsym $mod+$down resize shrink down 5 px or 5 ppt
+  bindsym $mod+$up resize shrink up 5 px or 5 ppt
+  bindsym $mod+$right resize shrink right 5 px or 5 ppt
+
+  bindsym p mode "resize:precise"
+  bindsym Escape exec ~/.i3/bin/i3-mode-default
+}
+
+mode "resize:precise" {
+  bindsym $left resize grow left 1 px or 1 ppt
+  bindsym $down resize grow down 1 px or 1 ppt
+  bindsym $up resize grow up 1 px or 1 ppt
+  bindsym $right resize grow right 1 px or 1 ppt
+  bindsym $mod+$left resize shrink left 1 px or 1 ppt
+  bindsym $mod+$down resize shrink down 1 px or 1 ppt
+  bindsym $mod+$up resize shrink up 1 px or 1 ppt
+  bindsym $mod+$right resize shrink right 1 px or 1 ppt
+
+  bindsym p mode "resize"
+  bindsym Escape exec ~/.i3/bin/i3-mode-default
+}
+
+# layout mode
+set $layout "layout: [t]abbed [s]tacking split[v] split[h]"
+
+mode $layout {
+  bindsym t layout tabbed; exec ~/.i3/bin/i3-mode-default;
+  bindsym s layout stacking; exec ~/.i3/bin/i3-mode-default;
+  bindsym v layout splitv; exec ~/.i3/bin/i3-mode-default;
+  bindsym h layout splith; exec ~/.i3/bin/i3-mode-default;
+
+  bindsym Escape exec ~/.i3/bin/i3-mode-default
 }
 
 # screen 1
@@ -46,7 +88,7 @@ mode "1" {
   bindsym $mod+c kill
 
   # application shortcuts
-  bindsym $mod+r exec dmenu_run
+  bindsym $mod+p exec dmenu_run
   bindsym $mod+f exec pcmanfm
   bindsym $mod+t exec gnome-terminal
 
@@ -77,12 +119,6 @@ mode "1" {
   bindsym $mod+Shift+Up move container to output up
   bindsym $mod+Shift+Right move container to output right
 
-  # resize windows
-  bindsym $mod+Shift+u resize shrink width 5 px or 5 ppt
-  bindsym $mod+Shift+i resize grow height 5 px or 5 ppt
-  bindsym $mod+Shift+o resize shrink height 5 px or 5 ppt
-  bindsym $mod+Shift+p resize grow width 5 px or 5 ppt
-
   # change tiling position
   bindsym $mod+period split h
   bindsym $mod+comma split v
@@ -97,7 +133,9 @@ mode "1" {
   bindsym $mod+minus scratchpad show
 
   # special modes
-  bindsym $mod+Escape mode "pass-through"
+  bindsym $mod+Escape mode pass-through
+  bindsym $mod+r mode resize
+  bindsym $mod+m mode $layout
 
   # system commands
   bindsym $mod+q restart
@@ -149,7 +187,7 @@ mode "2" {
   bindsym $mod+c kill
 
   # application shortcuts
-  bindsym $mod+r exec dmenu_run
+  bindsym $mod+p exec dmenu_run
   bindsym $mod+f exec pcmanfm
   bindsym $mod+t exec gnome-terminal
 
@@ -180,12 +218,6 @@ mode "2" {
   bindsym $mod+Shift+Up move container to output up
   bindsym $mod+Shift+Right move container to output right
 
-  # resize windows
-  bindsym $mod+Shift+u resize shrink width 5 px or 5 ppt
-  bindsym $mod+Shift+i resize grow height 5 px or 5 ppt
-  bindsym $mod+Shift+o resize shrink height 5 px or 5 ppt
-  bindsym $mod+Shift+p resize grow width 5 px or 5 ppt
-
   # change tiling position
   bindsym $mod+period split h
   bindsym $mod+comma split v
@@ -200,7 +232,9 @@ mode "2" {
   bindsym $mod+minus scratchpad show
 
   # special modes
-  bindsym $mod+Escape mode "pass-through"
+  bindsym $mod+Escape mode pass-through
+  bindsym $mod+r mode resize
+  bindsym $mod+m mode $layout
 
   # system commands
   bindsym $mod+q restart
@@ -238,7 +272,7 @@ bar {
 }
 
 #
-exec_always --no-startup-id ~/.i3/i3workspace.pl
+exec_always --no-startup-id ~/.i3/bin/i3-screen-workspaces
 exec_always --no-startup-id i3-msg mode 1
 
 #
