@@ -1,48 +1,65 @@
+  # hide/show window title
+  bindcode $mod+48 border normal 1
+  bindcode $mod+Shift+48 border pixel 1
+
+  # close window
   bindsym $mod+c kill
 
+  # application shortcuts
   bindsym $mod+r exec dmenu_run
   bindsym $mod+f exec pcmanfm
   bindsym $mod+t exec gnome-terminal
 
+  # window focus
   bindsym $mod+$left focus left
   bindsym $mod+$down focus down
   bindsym $mod+$up focus up
   bindsym $mod+$right focus right
 
+  bindsym $mod+a focus parent
+  bindsym $mod+d focus child
+
+  # screen focus
   bindsym $mod+Left focus output left
   bindsym $mod+Down focus output down
   bindsym $mod+Up focus output up
   bindsym $mod+Right focus output right
 
+  # move window
   bindsym $mod+Shift+$left move left
   bindsym $mod+Shift+$down move down
   bindsym $mod+Shift+$up move up
   bindsym $mod+Shift+$right move right
 
+  # move window to screen
   bindsym $mod+Shift+Left move container to output left
   bindsym $mod+Shift+Down move container to output down
   bindsym $mod+Shift+Up move container to output up
   bindsym $mod+Shift+Right move container to output right
 
+  # resize windows
   bindsym $mod+Shift+u resize shrink width 5 px or 5 ppt
   bindsym $mod+Shift+i resize grow height 5 px or 5 ppt
   bindsym $mod+Shift+o resize shrink height 5 px or 5 ppt
   bindsym $mod+Shift+p resize grow width 5 px or 5 ppt
 
+  # change tiling position
   bindsym $mod+period split h
   bindsym $mod+comma split v
 
+  # change layouts
   bindsym $mod+F11 fullscreen toggle
   bindsym $mod+space layout toggle all
-
   bindsym $mod+f floating toggle
 
-  bindsym $mod+a focus parent
-  bindsym $mod+d focus child
-
+  # scratch pad
   bindsym $mod+Shift+minus move scratchpad
   bindsym $mod+minus scratchpad show
 
+  # special modes
+  bindsym $mod+Escape mode "pass-through"
+
+  # system commands
   bindsym $mod+q restart
   bindsym $mod+Shift+q exec "_LXSESSION_PID=$(pgrep -ox i3) lxde-logout"
   bindsym $mod+Ctrl+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
