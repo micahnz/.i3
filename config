@@ -18,6 +18,7 @@ mouse_warping none
 
 # window defaults
 for_window [class=".*"] border pixel 1
+for_window [class="Galculator"] border normal 1
 for_window [class="Galculator"] floating enable
 
 # pass-through mode
