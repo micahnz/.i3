@@ -6,7 +6,7 @@
 
   # application shortcuts
   bindsym $mod+p exec dmenu_run
-  bindsym $mod+f exec pcmanfm
+  bindsym $mod+f exec nautilus
   bindsym $mod+t exec gnome-terminal
 
   # window focus
@@ -56,5 +56,5 @@
 
   # system commands
   bindsym $mod+q restart
-  bindsym $mod+Shift+q exec "_LXSESSION_PID=$(pgrep -ox i3) lxde-logout"
+  bindsym $mod+Shift+q exec "_LXSESSION_PID=$(pgrep -ox i3) lxsession-logout"
   bindsym $mod+Ctrl+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

@@ -155,6 +155,6 @@ exec_always --no-startup-id ~/.i3/bin/i3-screen-workspaces
 exec_always --no-startup-id i3-msg mode 1
 
 #
-exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id xbindkeys
+# exec --no-startup-id xsetroot -solid "#000000"
+# exec --no-startup-id xbindkeys
 exec --no-startup-id synapse
