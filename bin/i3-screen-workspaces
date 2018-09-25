@@ -8,7 +8,7 @@ use AnyEvent::I3 qw(:all);
 my $i3 = i3();
 
 $i3->connect->recv or die "Could not connect to i3: $!";
-$i3->message(TYPE_COMMAND, "mode 1");
+# $i3->message(TYPE_COMMAND, "mode 1");
 
 my %callbacks = (
   workspace => sub {

@@ -43,7 +43,7 @@
   # change layouts
   bindsym $mod+F11 fullscreen toggle
   bindsym $mod+space layout toggle all
-  bindsym $mod+f floating toggle
+  bindsym $mod+shift+f floating toggle
 
   # scratch pad
   bindsym $mod+Shift+minus move scratchpad
