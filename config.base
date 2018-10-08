@@ -3,8 +3,13 @@
 
 # default mod key (ALT)
 set $mod Mod1
-set $primary HDMI-1
-set $secondary eDP-1
+
+# single monitor setup
+set $primary eDP-1
+
+# dual monitor setup
+# set $primary HDMI-1
+# set $secondary eDP-1
 
 # vim style navigation
 set $left h

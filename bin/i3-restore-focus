@@ -1,4 +1,8 @@
 #!/bin/bash
 sleep 0.1
-i3-msg focus output $2 # secondary
-i3-msg focus output $1 # primary
+if [ -n "$2" ]; then
+    i3-msg focus output $2 # secondary
+    i3-msg focus output $1 # primary
+else
+    i3-msg mode 1
+fi
