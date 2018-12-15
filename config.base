@@ -5,11 +5,11 @@
 set $mod Mod1
 
 # single monitor setup
-set $primary eDP-1
+# set $primary Virtual1
 
 # dual monitor setup
-# set $primary HDMI-1
-# set $secondary eDP-1
+set $primary Virtual1
+set $secondary Virtual2
 
 # vim style navigation
 set $left h
@@ -158,7 +158,7 @@ bar {
 }
 
 #
-exec --no-startup-id ~/.screenlayout/i3-default.sh
+exec --no-startup-id imwheel --kill --buttons "4 5"
 exec --no-startup-id xsetroot -solid "#000000"
 exec --no-startup-id synapse
 
