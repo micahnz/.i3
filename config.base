@@ -1,8 +1,12 @@
 # Generate config with:
 # sed '/^[[:space:]]*# config.default_keys/r config.default_keys' config.base > config
 
-# default mod key (ALT)
-set $mod Mod1
+# default mod key (WIN)
+set $mod Mod4
+
+# mod aliases
+set $alt Mod1
+set $win Mod4
 
 # single monitor setup
 # set $primary Virtual1
@@ -39,10 +43,10 @@ mode "resize" {
   bindsym $down resize grow down 5 px or 5 ppt
   bindsym $up resize grow up 5 px or 5 ppt
   bindsym $right resize grow right 5 px or 5 ppt
-  bindsym $mod+$left resize shrink left 5 px or 5 ppt
-  bindsym $mod+$down resize shrink down 5 px or 5 ppt
-  bindsym $mod+$up resize shrink up 5 px or 5 ppt
-  bindsym $mod+$right resize shrink right 5 px or 5 ppt
+  bindsym $mod+$alt+$left resize shrink left 5 px or 5 ppt
+  bindsym $mod+$alt+$down resize shrink down 5 px or 5 ppt
+  bindsym $mod+$alt+$up resize shrink up 5 px or 5 ppt
+  bindsym $mod+$alt+$right resize shrink right 5 px or 5 ppt
 
   bindsym p mode "resize:precise"
   bindsym Escape exec ~/.i3/bin/i3-mode-default
@@ -53,10 +57,10 @@ mode "resize:precise" {
   bindsym $down resize grow down 1 px or 1 ppt
   bindsym $up resize grow up 1 px or 1 ppt
   bindsym $right resize grow right 1 px or 1 ppt
-  bindsym $mod+$left resize shrink left 1 px or 1 ppt
-  bindsym $mod+$down resize shrink down 1 px or 1 ppt
-  bindsym $mod+$up resize shrink up 1 px or 1 ppt
-  bindsym $mod+$right resize shrink right 1 px or 1 ppt
+  bindsym $mod+$alt+$left resize shrink left 1 px or 1 ppt
+  bindsym $mod+$alt+$down resize shrink down 1 px or 1 ppt
+  bindsym $mod+$alt+$up resize shrink up 1 px or 1 ppt
+  bindsym $mod+$alt+$right resize shrink right 1 px or 1 ppt
 
   bindsym p mode "resize"
   bindsym Escape exec ~/.i3/bin/i3-mode-default
@@ -160,7 +164,10 @@ bar {
 #
 exec --no-startup-id imwheel --kill --buttons "4 5"
 exec --no-startup-id xsetroot -solid "#000000"
+exec --no-startup-id vmware-user
 exec --no-startup-id synapse
+exec --no-startup-id gnome-terminal
+exec --no-startup-id workrave
 
 #
 exec_always --no-startup-id ~/.i3/bin/i3-screen-workspaces
