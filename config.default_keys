@@ -5,36 +5,37 @@
   bindsym $mod+c kill
 
   # application shortcuts
-  bindsym $mod+p exec dmenu_run
+  bindsym $mod+p exec rofi -show run 
   bindsym $mod+f exec nautilus
   bindsym $mod+t exec gnome-terminal
+  bindsym $mod+Tab exec rofi -show window
 
   # window focus
-  bindsym $mod+$alt+$left focus left
-  bindsym $mod+$alt+$down focus down
-  bindsym $mod+$alt+$up focus up
-  bindsym $mod+$alt+$right focus right
-
-  bindsym $mod+a focus parentls
+  bindsym $mod+a focus parent
   bindsym $mod+d focus child
+  
+  bindsym $mod+Shift+$left focus left
+  bindsym $mod+Shift+$down focus down
+  bindsym $mod+Shift+$up focus up
+  bindsym $mod+Shift+$right focus right
+
+  # move window
+  bindsym $mod+Ctrl+Shift+$left move left
+  bindsym $mod+Ctrl+Shift+$down move down
+  bindsym $mod+Ctrl+Shift+$up move up
+  bindsym $mod+Ctrl+Shift+$right move right
 
   # screen focus
   bindsym $mod+Left focus output left
-  bindsym $mod+Down focus output down
-  bindsym $mod+Up focus output up
+  bindsym $mod+Down focus output right
+  bindsym $mod+Up focus output left 
   bindsym $mod+Right focus output right
 
-  # move window
-  bindsym $mod+Shift+$left move left
-  bindsym $mod+Shift+$down move down
-  bindsym $mod+Shift+$up move up
-  bindsym $mod+Shift+$right move right
-
   # move window to screen
-  bindsym $mod+Shift+Left move container to output left
-  bindsym $mod+Shift+Down move container to output down
-  bindsym $mod+Shift+Up move container to output up
-  bindsym $mod+Shift+Right move container to output right
+  bindsym $mod+Shift+Left move container to output left; focus output left
+  bindsym $mod+Shift+Down move container to output right; focus output right
+  bindsym $mod+Shift+Up move container to output left; focus output left
+  bindsym $mod+Shift+Right move container to output right; focus output right
 
   # change tiling position
   bindsym $mod+period split h

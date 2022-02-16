@@ -159,15 +159,31 @@ bar {
   position bottom
   status_command i3status
   tray_output primary
+  font pango:DejaVu Sans Mono 9
+  colors {
+    background #131313
+    statusline #ffffff
+  }
 }
+
+# gaps
+gaps inner 4
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #3b7eb0
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 #
 exec --no-startup-id imwheel --kill --buttons "4 5"
-exec --no-startup-id xsetroot -solid "#000000"
+exec --no-startup-id compton -b --config ~/.i3/compton.conf
+exec --no-startup-id feh --bg-scale --zoom fill ~/.i3/background.jpg
 exec --no-startup-id vmware-user
 exec --no-startup-id synapse
 exec --no-startup-id gnome-terminal
-exec --no-startup-id workrave
 
 #
 exec_always --no-startup-id ~/.i3/bin/i3-screen-workspaces
