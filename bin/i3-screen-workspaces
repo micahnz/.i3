@@ -18,7 +18,6 @@ my %callbacks = (
     my $next = substr $e->{'current'}->{'name'}, -1;
 
     if (looks_like_number($mode) && $mode != $next) {
-      print STDERR "change workspaces";
       $i3->message(TYPE_COMMAND, "mode ${next}");
     }
   },
