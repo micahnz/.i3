@@ -21,6 +21,9 @@ set $down j
 set $up k
 set $right l
 
+#
+set $exit exec ~/.i3/bin/i3-mode-default
+
 # defaults
 floating_modifier $mod
 font xft:Droid Sans Mono 8
@@ -28,9 +31,10 @@ focus_follows_mouse no
 mouse_warping none
 
 # window defaults
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 for_window [class="Galculator"] border normal 1
 for_window [class="Galculator"] floating enable
+for_window [class="Synapse"] border none
 
 # pass-through mode
 mode "pass-through" {
@@ -43,13 +47,15 @@ mode "resize" {
   bindsym $down resize grow down 5 px or 5 ppt
   bindsym $up resize grow up 5 px or 5 ppt
   bindsym $right resize grow right 5 px or 5 ppt
-  bindsym $mod+$alt+$left resize shrink left 5 px or 5 ppt
-  bindsym $mod+$alt+$down resize shrink down 5 px or 5 ppt
-  bindsym $mod+$alt+$up resize shrink up 5 px or 5 ppt
-  bindsym $mod+$alt+$right resize shrink right 5 px or 5 ppt
+  bindsym Shift+$left resize shrink left 5 px or 5 ppt
+  bindsym Shift+$down resize shrink down 5 px or 5 ppt
+  bindsym Shift+$up resize shrink up 5 px or 5 ppt
+  bindsym Shift+$right resize shrink right 5 px or 5 ppt
 
   bindsym p mode "resize:precise"
-  bindsym Escape exec ~/.i3/bin/i3-mode-default
+
+  bindsym Escape $exit
+  bindsym Ctrl+c $exit
 }
 
 mode "resize:precise" {
@@ -57,13 +63,15 @@ mode "resize:precise" {
   bindsym $down resize grow down 1 px or 1 ppt
   bindsym $up resize grow up 1 px or 1 ppt
   bindsym $right resize grow right 1 px or 1 ppt
-  bindsym $mod+$alt+$left resize shrink left 1 px or 1 ppt
-  bindsym $mod+$alt+$down resize shrink down 1 px or 1 ppt
-  bindsym $mod+$alt+$up resize shrink up 1 px or 1 ppt
-  bindsym $mod+$alt+$right resize shrink right 1 px or 1 ppt
+  bindsym Shift+$left resize shrink left 1 px or 1 ppt
+  bindsym Shift+$down resize shrink down 1 px or 1 ppt
+  bindsym Shift+$up resize shrink up 1 px or 1 ppt
+  bindsym Shift+$right resize shrink right 1 px or 1 ppt
 
   bindsym p mode "resize"
-  bindsym Escape exec ~/.i3/bin/i3-mode-default
+
+  bindsym Escape $exit
+  bindsym Ctrl+c $exit
 }
 
 # layout mode
@@ -75,7 +83,68 @@ mode $layout {
   bindsym v layout splitv; exec ~/.i3/bin/i3-mode-default;
   bindsym h layout splith; exec ~/.i3/bin/i3-mode-default;
 
-  bindsym Escape exec ~/.i3/bin/i3-mode-default
+  bindsym Escape $exit
+  bindsym Ctrl+c $exit
+}
+
+mode "move" {
+  bindsym $left focus left
+  bindsym $down focus down
+  bindsym $up focus up
+  bindsym $right focus right
+
+  # move window
+  bindsym Shift+$left move left
+  bindsym Shift+$down move down
+  bindsym Shift+$up move up
+  bindsym Shift+$right move right
+
+  # screen focus
+  bindsym Left focus output left
+  bindsym Down focus output right
+  bindsym Up focus output left
+  bindsym Right focus output right
+
+  # move window to screen
+  bindsym Shift+Left move container to output left; focus output left
+  bindsym Shift+Down move container to output right; focus output right
+  bindsym Shift+Up move container to output left; focus output left
+  bindsym Shift+Right move container to output right; focus output right
+
+  bindsym p mode "move:one"
+
+  bindsym Escape $exit
+  bindsym Ctrl+c $exit
+}
+
+mode "move:one" {
+  bindsym $left focus left; $exit
+  bindsym $down focus down; $exit
+  bindsym $up focus up; $exit
+  bindsym $right focus right; $exit 
+
+  # move window
+  bindsym Shift+$left move left; $exit
+  bindsym Shift+$down move down; $exit
+  bindsym Shift+$up move up; $exit
+  bindsym Shift+$right move right; $exit
+
+  # screen focus
+  bindsym Left focus output left; $exit
+  bindsym Down focus output right; $exit
+  bindsym Up focus output left; $exit
+  bindsym Right focus output right; $exit
+
+  # move window to screen
+  bindsym Shift+Left move container to output left; focus output left; $exit
+  bindsym Shift+Down move container to output right; focus output right; $exit
+  bindsym Shift+Up move container to output left; focus output left; $exit
+  bindsym Shift+Right move container to output right; focus output right; $exit
+  
+  bindsym p mode "move"
+
+  bindsym Escape $exit
+  bindsym Ctrl+c $exit
 }
 
 # screen 1
@@ -168,6 +237,7 @@ bar {
 
 # gaps
 gaps inner 4
+gaps outer -2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #3b7eb0

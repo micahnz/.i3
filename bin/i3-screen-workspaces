@@ -4,18 +4,28 @@ use warnings;
 use POSIX;
 use AnyEvent;
 use AnyEvent::I3 qw(:all);
+use Data::Dumper;
+use Scalar::Util qw(looks_like_number);
 
 my $i3 = i3();
+my $mode = "1";
 
 $i3->connect->recv or die "Could not connect to i3: $!";
-# $i3->message(TYPE_COMMAND, "mode 1");
 
 my %callbacks = (
   workspace => sub {
     my $e = shift;
-    my $mode = substr $e->{'current'}->{'name'}, -1;
+    my $next = substr $e->{'current'}->{'name'}, -1;
 
-    $i3->message(TYPE_COMMAND, "mode ${mode}");
+    if (looks_like_number($mode) && $mode != $next) {
+      print STDERR "change workspaces";
+      $i3->message(TYPE_COMMAND, "mode ${next}");
+    }
+  },
+  mode => sub {
+    my $e = shift;
+
+    $mode = $e->{'change'};
   },
   _error => sub {
     my $msg = shift;
@@ -31,7 +41,5 @@ my %callbacks = (
 
 $i3->subscribe(\%callbacks)->recv->{success}
   or die "Could not subscribe to the events: $!";
-
-
 
 AE::cv->recv;

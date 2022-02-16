@@ -1,2 +1,2 @@
 #!/bin/bash
-i3-msg "workspace back_and_forth; workspace back_and_forth"
+i3-msg "mode 1; workspace back_and_forth; workspace back_and_forth"
