@@ -14,6 +14,29 @@
   bindsym $mod+a focus parent
   bindsym $mod+s focus child
 
+  bindsym $mod+$alt+$left focus left 
+  bindsym $mod+$alt+$down focus down 
+  bindsym $mod+$alt+$up focus up 
+  bindsym $mod+$alt+$right focus right 
+ 
+  # move window 
+  bindsym $mod+Shift+$left move left 
+  bindsym $mod+Shift+$down move down 
+  bindsym $mod+Shift+$up move up 
+  bindsym $mod+Shift+$right move right 
+ 
+  # screen focus 
+  bindsym $mod+Left focus output left 
+  bindsym $mod+Down focus output right 
+  bindsym $mod+Up focus output left 
+  bindsym $mod+Right focus output right 
+ 
+  # move window to screen 
+  bindsym $mod+Shift+Left move container to output left; focus output left; 
+  bindsym $mod+Shift+Down move container to output right; focus output right; 
+  bindsym $mod+Shift+Up move container to output left; focus output left; 
+  bindsym $mod+Shift+Right move container to output right; focus output right; 
+
   # change tiling position
   bindsym $mod+period split h
   bindsym $mod+comma split v
@@ -31,8 +54,6 @@
   bindsym $mod+Escape mode pass-through
   bindsym $mod+r mode resize
   bindsym $mod+m mode $layout
-  bindsym $mod+w mode move:one
-  bindsym $mod+Shift+w mode move
 
   # system commands
   bindsym $mod+q restart

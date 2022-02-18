@@ -43,6 +43,8 @@ mode "pass-through" {
 
 # resize modes
 mode "resize" {
+  # config.default_keys
+ 
   bindsym $left resize grow left 5 px or 5 ppt
   bindsym $down resize grow down 5 px or 5 ppt
   bindsym $up resize grow up 5 px or 5 ppt
@@ -59,6 +61,8 @@ mode "resize" {
 }
 
 mode "resize:precise" {
+  # config.default_keys
+
   bindsym $left resize grow left 1 px or 1 ppt
   bindsym $down resize grow down 1 px or 1 ppt
   bindsym $up resize grow up 1 px or 1 ppt
@@ -82,66 +86,6 @@ mode $layout {
   bindsym s layout stacking; exec ~/.i3/bin/i3-mode-default;
   bindsym v layout splitv; exec ~/.i3/bin/i3-mode-default;
   bindsym h layout splith; exec ~/.i3/bin/i3-mode-default;
-
-  bindsym Escape $exit
-  bindsym Ctrl+c $exit
-}
-
-mode "move" {
-  bindsym $left focus left
-  bindsym $down focus down
-  bindsym $up focus up
-  bindsym $right focus right
-
-  # move window
-  bindsym Shift+$left move left
-  bindsym Shift+$down move down
-  bindsym Shift+$up move up
-  bindsym Shift+$right move right
-
-  # screen focus
-  bindsym Left focus output left
-  bindsym Down focus output right
-  bindsym Up focus output left
-  bindsym Right focus output right
-
-  # move window to screen
-  bindsym Shift+Left move container to output left; focus output left
-  bindsym Shift+Down move container to output right; focus output right
-  bindsym Shift+Up move container to output left; focus output left
-  bindsym Shift+Right move container to output right; focus output right
-
-  bindsym p mode "move:one"
-
-  bindsym Escape $exit
-  bindsym Ctrl+c $exit
-}
-
-mode "move:one" {
-  bindsym $left focus left; $exit
-  bindsym $down focus down; $exit
-  bindsym $up focus up; $exit
-  bindsym $right focus right; $exit 
-
-  # move window
-  bindsym Shift+$left move left; $exit
-  bindsym Shift+$down move down; $exit
-  bindsym Shift+$up move up; $exit
-  bindsym Shift+$right move right; $exit
-
-  # screen focus
-  bindsym Left focus output left; $exit
-  bindsym Down focus output right; $exit
-  bindsym Up focus output left; $exit
-  bindsym Right focus output right; $exit
-
-  # move window to screen
-  bindsym Shift+Left move container to output left; focus output left; $exit
-  bindsym Shift+Down move container to output right; focus output right; $exit
-  bindsym Shift+Up move container to output left; focus output left; $exit
-  bindsym Shift+Right move container to output right; focus output right; $exit
-  
-  bindsym p mode "move"
 
   bindsym Escape $exit
   bindsym Ctrl+c $exit
@@ -241,8 +185,8 @@ gaps outer -2
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #3b7eb0
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #222222
+client.unfocused        #333333 #222222 #888888 #292d2e   #2f2f2f
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
