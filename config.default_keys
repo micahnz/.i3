@@ -14,10 +14,10 @@
   bindsym $mod+a focus parent
   bindsym $mod+s focus child
 
-  bindsym $mod+$alt+$left focus left 
-  bindsym $mod+$alt+$down focus down 
-  bindsym $mod+$alt+$up focus up 
-  bindsym $mod+$alt+$right focus right 
+  bindsym $mod+$left focus left 
+  bindsym $mod+$down focus down 
+  bindsym $mod+$up focus up 
+  bindsym $mod+$right focus right 
  
   # move window 
   bindsym $mod+Shift+$left move left 
