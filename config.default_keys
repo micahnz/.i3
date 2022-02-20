@@ -26,16 +26,16 @@
   bindsym $mod+Shift+$right move right 
  
   # screen focus 
-  bindsym $mod+Left focus output left 
-  bindsym $mod+Down focus output right 
-  bindsym $mod+Up focus output left 
-  bindsym $mod+Right focus output right 
+  bindsym $mod+y focus output left 
+  bindsym $mod+u focus output right 
+  bindsym $mod+i focus output left 
+  bindsym $mod+o focus output right 
  
   # move window to screen 
-  bindsym $mod+Shift+Left move container to output left; focus output left; 
-  bindsym $mod+Shift+Down move container to output right; focus output right; 
-  bindsym $mod+Shift+Up move container to output left; focus output left; 
-  bindsym $mod+Shift+Right move container to output right; focus output right; 
+  bindsym $mod+Shift+y move container to output left; focus output left; 
+  bindsym $mod+Shift+u move container to output right; focus output right; 
+  bindsym $mod+Shift+i move container to output left; focus output left; 
+  bindsym $mod+Shift+u move container to output right; focus output right; 
 
   # change tiling position
   bindsym $mod+period split h

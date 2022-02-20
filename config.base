@@ -28,6 +28,7 @@ mouse_warping none
 
 # window defaults
 for_window [class=".*"] border pixel 2
+for_window [class="Gnome-terminal"] border normal 2
 for_window [class="Galculator"] border normal 1
 for_window [class="Galculator"] floating enable
 for_window [class="Synapse"] border none
