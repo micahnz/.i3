@@ -6,7 +6,7 @@
 
   # application shortcuts
   bindsym $mod+p exec rofi -show run 
-  bindsym $mod+f exec nautilus
+  bindsym $mod+f exec pcmanfm
   bindsym $mod+t exec gnome-terminal
   bindsym $mod+Tab exec rofi -show window
 

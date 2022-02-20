@@ -177,6 +177,9 @@ bar {
 }
 
 # gaps
+smart_borders on
+smart_gaps on
+
 gaps inner 4
 gaps outer -2
 
