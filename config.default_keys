@@ -42,7 +42,7 @@
   bindsym $mod+comma split v
 
   # change layouts
-  bindsym $mod+F11 fullscreen toggle
+  bindsym $mod+minus fullscreen toggle
   bindsym $mod+space layout toggle all
   bindsym $mod+shift+f floating toggle
 
